@@ -26,8 +26,10 @@
 - `st` 를 입력하면 바로 **Stateful Widget** 과 **Stateless Widget** 을 생성할 수 있음
 
 <br/>
+<p>
 <img src ="md_resources\resource_3.png" height="200"/>
 <img src ="md_resources\resource_4.png" height="200"/>
+</p>
 <br/>
 
 - **flutter** 는 **State** 값이 바뀌는걸 알려주지 않으면 바로 적용이 되지 않음
