@@ -23,35 +23,44 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: const Color(0xFFF4EDDB),
+      theme: ThemeData(
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(
+            color: Colors.red,
+          ),
+        ),
+      ), // MaterialApp 내 자체 css를 주는 법
+      home: const Scaffold(
+        backgroundColor: Color(0xFFF4EDDB),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                'Click count',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              Text(
-                '$counter',
-                style: const TextStyle(
-                  fontSize: 48,
-                ),
-              ),
-              IconButton(
-                iconSize: 40,
-                onPressed: onClicked,
-                icon: const Icon(
-                  Icons.add_box_rounded,
-                ),
-              )
+              MainTitle(),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class MainTitle extends StatelessWidget {
+  const MainTitle({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    // context는 부모의 값을 가져올때 사용
+    // 상위 위젯의 데이터를 가져올 때 사용 가능함
+    return Text(
+      "Main Title",
+      style: TextStyle(
+        fontSize: 42,
+        fontWeight: FontWeight.w800,
+        color: Theme.of(context).textTheme.titleLarge?.color,
+        //Theme.of() 로 context를 가져옴 >> 상위 위젯의 설정을 가져옴
       ),
     );
   }
