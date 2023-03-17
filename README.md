@@ -85,5 +85,42 @@ Widget build(BuildContext context) {
 <br/>
 <img src ="md_resources\resource_5.png" width="400"/>
 <br/>
+<br/>
 
 - 상위 **Widget** 의 **theme** 설정을 잘 가져온 모습
+
+<br/>
+
+> ## Widget의 Lifecycle
+
+<br/>
+<img src ="md_resources\resource_6.png" width="400"/>
+<br/>
+<br/>
+
+- 생명주기를 확인해보기 위해 `print`를 달아서 확인
+
+<br/>
+
+**initState**
+
+- State 상태값을 초기화 하는데 사용
+- initState가 build 보다 먼저 나와야 함
+- API update 에 사용함
+
+**build**
+
+- Widget을 실행할 때 실행 되는 함수
+
+**dispose**
+
+- **Widget**이 사라질 때 실행되는 함수
+
+<br/>
+
+<br/>
+<img src ="md_resources\resource_7.png" width="400"/>
+<br/>
+<br/>
+
+- **widget**이 사라지는 **toggle** 버튼을 만들어 widget의 생명주기를 확인해봄
