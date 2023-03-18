@@ -11,18 +11,19 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSwatch(
-            // 배경화면 세팅
-            backgroundColor: const Color(0xFFE7626C),
-          ),
-          textTheme: const TextTheme(
-            displayLarge: TextStyle(
-              color: Color(0xFF232B55),
-            ),
-          ),
-          cardColor: const Color(0xFFF4EDDB),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSwatch(
+          // 배경화면 세팅
+          backgroundColor: const Color(0xFFE7626C),
         ),
-        home: const HomeScreen());
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(
+            color: Color(0xFF232B55),
+          ),
+        ),
+        cardColor: const Color(0xFFF4EDDB),
+      ),
+      home: const HomeScreen(),
+    );
   }
 }

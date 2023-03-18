@@ -124,3 +124,75 @@ Widget build(BuildContext context) {
 <br/>
 
 - **widget**이 사라지는 **toggle** 버튼을 만들어 widget의 생명주기를 확인해봄
+
+<br/>
+<hr/>
+
+###### 20230318
+
+> ## Jumodoro 만들기 ( Pomodoro-Clone )
+
+<br/>
+
+- **Setting** 초기화
+- **theme** 을 지정, **flutter** 업데이트로 사용법이 바뀌었으므로 참고
+- `alignment` 로 `child`의 위치를 지정해 줄 수 있음
+
+```Dart
+ MaterialApp(
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSwatch(
+          // 배경화면 세팅
+          backgroundColor: const Color(0xFFE7626C),
+        ),
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(
+            color: Color(0xFF232B55),
+          ),
+        ),
+        cardColor: const Color(0xFFF4EDDB),
+      ),
+      home: const HomeScreen(),
+    );
+```
+
+<br/>
+
+## Flexible
+
+<br/>
+
+- **Flexible** 은 `css` 의 **grid** 와 비슷함
+- UI에 맞춰서 화면을 분할하기 편함
+- `flex`는 화면을 분할 할 시 그 배율 값을 지정
+
+<br/>
+<br/>
+<img src ="md_resources\resource_8.png" width="400"/>
+<br/>
+<br/>
+
+- 화면을 분할 적용한 모습
+
+<br/>
+<br/>
+
+## Expanded
+
+<br/>
+
+- **Expanded** 는 `widget`을 확장해 줄 때 사용
+- **Row** 와 함께 써서 가로축 방향으로 화면 끝ㅌ까지 확장
+
+<br/>
+<br/>
+<p>
+<img src ="md_resources\resource_9.png" width="250"/>
+<img src ="md_resources\resource_10.png" width="250"/>
+<img src ="md_resources\resource_11.png" width="250"/>
+
+<p/>
+<br/>
+<br/>
+
+<br/>
