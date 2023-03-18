@@ -182,7 +182,7 @@ Widget build(BuildContext context) {
 <br/>
 
 - **Expanded** 는 `widget`을 확장해 줄 때 사용
-- **Row** 와 함께 써서 가로축 방향으로 화면 끝ㅌ까지 확장
+- **Row** 와 함께 써서 가로축 방향으로 화면 끝까지 확장
 
 <br/>
 <br/>
@@ -190,9 +190,40 @@ Widget build(BuildContext context) {
 <img src ="md_resources\resource_9.png" width="250"/>
 <img src ="md_resources\resource_10.png" width="250"/>
 <img src ="md_resources\resource_11.png" width="250"/>
-
 <p/>
 <br/>
 <br/>
+
+<br/>
+<br/>
+
+## Timer 생성하기
+
+<br/>
+
+- **Timer** 는 타이머를 만들기 위해 사용
+- `Timer.periodic`은 **duration** 과 **timer** args를 갖는데, **duration**은 특정 함수가 실행되는 주기 이며 **timer** 는 실행 되는 함수임
+
+<br/>
+<br/>
+<img src ="md_resources\resource_12.png" height="250"/>
+
+- 주기마다 실행 되는 함수는 매개변수로 `Timer args`를 가져야 하므로 args 에 `Timer timer` 를 넣어주어야 함
+
+```Dart
+  void onTick(Timer timer) {
+    setState(() {
+      if (totalSecond != 0) {
+        totalSecond -= 1;
+      }
+    });
+  } // Timer timer args 를 넣어주어 해결
+```
+
+<br/>
+<br/>
+<img src ="md_resources\resource_13.png" height="250"/>
+
+- 각 변수와 실행 함수 위치에 `totalSecond` `onStarted` 를 적절히 사용하여 정상 작동하는 모습
 
 <br/>
