@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -8,6 +10,28 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int totalSecond = 1500;
+  late Timer timer;
+  // 사용자가 버튼을 눌렀을 시에만 timer가 작동해야 하므로 late
+
+  void onTick(Timer timer) {
+    setState(() {
+      if (totalSecond != 0) {
+        totalSecond -= 1;
+      }
+    });
+  }
+
+  void onStated() {
+    /**
+     * periodic 함수는 특정 주기마다 함수를 싱행
+     */
+    timer = Timer.periodic(
+      const Duration(seconds: 1),
+      onTick,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
               alignment: Alignment.bottomCenter,
               // alignment 는 child 가 시작할 align의 위치를 정해줌 (하단 중앙에 시작)
               child: Text(
-                "25:00",
+                "$totalSecond",
                 style: TextStyle(
                   color: Theme.of(context).cardColor,
                   fontSize: 89,
@@ -37,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: IconButton(
                 color: Theme.of(context).cardColor,
                 iconSize: 100,
-                onPressed: () {},
+                onPressed: onStated,
                 icon: const Icon(
                   Icons.play_circle_outline_rounded,
                 ),
@@ -52,6 +76,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Container(
                     decoration: BoxDecoration(
                       color: Theme.of(context).cardColor,
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(50),
+                        topRight: Radius.circular(50),
+                        // 테두리를 둥글게 해줌
+                      ),
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
