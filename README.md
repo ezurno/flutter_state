@@ -227,3 +227,67 @@ Widget build(BuildContext context) {
 - 각 변수와 실행 함수 위치에 `totalSecond` `onStarted` 를 적절히 사용하여 정상 작동하는 모습
 
 <br/>
+<hr/>
+
+###### 20230319
+
+> ## 세부설정 하기
+
+<br/>
+
+## Pause button 생성
+
+<img src="md_resources\resource_14.png" width="200"/>
+
+<br/>
+
+- 일시정지를 하기 위해 **Pause** 버튼을 `toggle` 시 보이게끔 설정
+- 버튼을 눌러 실행 시 정상적으로 일시정지 버튼이 보이는 모습
+
+<br/>
+<br/>
+
+## lap-counter 세기
+
+<img src="md_resources\resource_15.png" width="200"/>
+
+<br/>
+
+- 타이머가 시간을 다 쟀을 경우 `totalLap` 을 세어 줌
+- 빠르게 체크하기 위해 상단의 `totalSecond` 를 10으로 줄였음
+- 하단에 `lap-counter`가 정상적으로 출력 됨
+
+<br/>
+<br/>
+
+## Fomatter 로 시간 형태로 나타내기
+
+<br/>
+
+- 상단의 시간이 시간의 형태로 나타내고 싶음
+- fomatter 라는 함수를 만들어 `Duration` 을 사용해 세팅
+- `Duration`은 각 타입에 맞춰서 형태를 변환 할 수 있음
+
+<br/>
+
+```Dart
+  String formatter(int time) {
+    var duration = Duration(seconds: time);
+    print(duration);
+    return "$duration".toString().substring(2, 7);
+  }
+```
+
+<br/>
+
+<img src="md_resources\resource_16.png" width="200"/>
+
+<br/>
+
+- 상단의 시간이 정상적으로 시간의 형태를 나타냄
+
+<br/>
+
+<br/>
+
+<br/>
