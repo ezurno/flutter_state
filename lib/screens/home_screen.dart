@@ -14,6 +14,8 @@ class _HomeScreenState extends State<HomeScreen> {
   late Timer timer;
   // 사용자가 버튼을 눌렀을 시에만 timer가 작동해야 하므로 late
 
+  bool isRun = false;
+
   void onTick(Timer timer) {
     setState(() {
       if (totalSecond != 0) {
@@ -30,6 +32,19 @@ class _HomeScreenState extends State<HomeScreen> {
       const Duration(seconds: 1),
       onTick,
     );
+
+    setState(() {
+      isRun = true;
+    });
+  }
+
+  void onPaused() {
+    timer.cancel();
+    // timer를 멈추는 함수
+
+    setState(() {
+      isRun = false;
+    });
   }
 
   @override
@@ -61,10 +76,14 @@ class _HomeScreenState extends State<HomeScreen> {
               child: IconButton(
                 color: Theme.of(context).cardColor,
                 iconSize: 100,
-                onPressed: onStated,
-                icon: const Icon(
-                  Icons.play_circle_outline_rounded,
-                ),
+                onPressed: isRun ? onPaused : onStated,
+                icon: isRun
+                    ? const Icon(
+                        Icons.pause_circle_outline_rounded,
+                      )
+                    : const Icon(
+                        Icons.play_circle_outline_rounded,
+                      ),
               ),
             ),
           ),
