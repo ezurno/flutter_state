@@ -10,18 +10,29 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int totalSecond = 1500;
+  int initialTime = 10;
+  int totalLap = 0;
+  late int totalSecond = initialTime;
+
   late Timer timer;
   // 사용자가 버튼을 눌렀을 시에만 timer가 작동해야 하므로 late
 
   bool isRun = false;
 
   void onTick(Timer timer) {
-    setState(() {
-      if (totalSecond != 0) {
+    if (totalSecond == 0) {
+      setState(() {
+        totalLap += 1;
+        isRun = false;
+        totalSecond = initialTime;
+      });
+      timer.cancel();
+      // 시간이 다 되면 timer가 끝나야하므로
+    } else {
+      setState(() {
         totalSecond -= 1;
-      }
-    });
+      });
+    }
   }
 
   void onStated() {
@@ -47,6 +58,12 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  String formatter(int time) {
+    var duration = Duration(seconds: time);
+    print(duration);
+    return "$duration".toString().substring(2, 7);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
               alignment: Alignment.bottomCenter,
               // alignment 는 child 가 시작할 align의 위치를 정해줌 (하단 중앙에 시작)
               child: Text(
-                "$totalSecond",
+                formatter(totalSecond),
                 style: TextStyle(
                   color: Theme.of(context).cardColor,
                   fontSize: 89,
@@ -117,7 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         Text(
-                          "0",
+                          "$totalLap",
                           style: TextStyle(
                             fontSize: 48,
                             fontWeight: FontWeight.w600,
